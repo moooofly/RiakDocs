@@ -21,6 +21,25 @@ Riak 学习文档（基于 v2.1.3）
 
 Riak 开发者手册
 
+- Riak 尝鲜
+  - CRUD 操作
+  - Query 尝鲜
+  - 对象模型
+- Basic Usage
+  - 应用向导
+  - 客户端库
+  - Key/Value 操作
+  - 对象更新
+  - Bucket 类型
+  - MapReduce
+  - 二级索引
+  - Commit Hooks
+  - 冲突解决
+- Riak Search
+- Riak Data Types
+- Data Modeling 
+- Advanced 
+
 Riak 运维者手册
 
 理论和概念
