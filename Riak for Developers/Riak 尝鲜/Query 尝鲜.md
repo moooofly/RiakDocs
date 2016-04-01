@@ -503,7 +503,7 @@ end.
 lists:foreach(AddIndicesToOrder, [1,2,3]).
 ```
 
-*As you may have noticed, ordinary Key/Value data is opaque to 2i, so we have to add entries to the indices at the application level. Now let's find all of Jane Appleseed's processed orders, we'll lookup the orders by searching the saleperson_id_int index for Jane's id of 9000.*
+*As you may have noticed, ordinary Key/Value data is opaque to 2i, so we have to add entries to the indices at the application level. Now let's find all of Jane Appleseed's processed orders, we'll lookup the orders by searching the saleperson_id_int index for Jane's id of 9000.*    
 你可能会发现，普通的 Key/Value 数据对于 2i 来说是不透明的，所以我们不得不在应用级别上为 index 添加 entry 。现在，让我们查询...
 
 ```erlang
