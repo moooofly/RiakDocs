@@ -17,7 +17,7 @@ Riak 学习文档
 
 - 下载
 - 安装
-- 基于源码安装
+- [基于源码安装 Riak](https://github.com/moooofly/RiakDocs/blob/master/Installing/%E5%9F%BA%E4%BA%8E%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85%20Riak.md)
 - 校验安装结果
 
 
