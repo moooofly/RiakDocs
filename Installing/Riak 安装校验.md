@@ -31,7 +31,7 @@ riak start
 riak console
 ```
 
-*A Riak node is typically started in console mode as part of **debugging** or **troubleshooting** to gather more detailed information from the Riak startup sequence. Note that if you start a Riak node in this manner, it is running as a foreground process that will be exited when the console is closed.*
+*A Riak node is typically started in console mode as part of debugging or troubleshooting to gather more detailed information from the Riak startup sequence. Note that if you start a Riak node in this manner, it is running as a foreground process that will be exited when the console is closed.*
 
 可以在 erlang console 上通过下面的命令退出：
 
@@ -47,7 +47,9 @@ riak ping
 
 若节点运行正常，则会回应 pong ；否则会回应 Node <nodename> not responding to pings 。
 
-实际测试情况如下
+---
+
+实际测试
 
 ```shell
 [root@Betty riak-2.1.3]# ./rel/riak/bin/riak start
@@ -66,12 +68,13 @@ Node 'riak@127.0.0.1' not responding to pings.
 [root@Betty riak-2.1.3]# 
 ```
 
+---
 
 > 关于文件描述符数目限制的问题
 
-> - 正如上面实验中的输出，在未调整可打开文件数目限制（ulimit -n）前，Riak 会在启动的时候给出警告信息。    
+> - 正如上面实验中的输出，在未调整可打开文件数目限制（ulimit -n）前，Riak 会在启动的时候给出警告信息；    
 > - 强烈建议在运行 Riak 的机器上，增大系统默认的可打开文件数目限制；
-> - 需要进行调整的原因详见[这里](http://docs.basho.com/riak/2.1.3/ops/tuning/open-files-limit/)
+> - 需要进行调整的原因详见[这里](http://docs.basho.com/riak/2.1.3/ops/tuning/open-files-limit/) ；
 
 
 ### 节点是否能够正常工作？
@@ -185,30 +188,30 @@ curl -v http://127.0.0.1:8098/types/default/props
 
 以下内容取自：[这里](http://riaknostic.basho.com/)
 
-#### **Riaknostic diagnostic tools for Riak**
+> #### **Riaknostic diagnostic tools for Riak**
 
-##### 概述
+> ##### 概述
 
-有些时候，我们知道 Riak 出现了问题。但我们怎样才能知道到底出了什么问题？Riaknostic 就是我们所需的诊断工具。
+> 有些时候，我们知道 Riak 出现了问题。但我们怎样才能知道到底出了什么问题？Riaknostic 就是我们所需的诊断工具。
+
 
 ```shell
 $ riak-admin diag
-
 15:34:52.736 [warning] Riak crashed at Wed, 07 Dec 2011 21:47:50 GMT, leaving crash dump in /srv/riak/log/erl_crash.dump. Please inspect or remove the file.
 15:34:52.736 [notice] Data directory /srv/riak/data/bitcask is not mounted with 'noatime'. Please remount its disk with the 'noatime' flag to improve performance.
 ```
 
-Riaknostic 可以通过上面的命令触发；    
-Riaknostic 由一组诊断检查命令集构成，用于发现目标 Riak 节点的常规运行问题，并提出问题解决建议；    
-这些检查方案来自于非常有经验的 Basho Client Services Team ，以及基于邮件列表、IRC 聊天室，和其他在线媒体中产生的公共讨论内容；    
+> Riaknostic 可以通过上面的命令触发；    
+> Riaknostic 由一组诊断检查命令集构成，用于发现目标 Riak 节点的常规运行问题，并提出问题解决建议；    
+> 这些检查方案来自于非常有经验的 Basho Client Services Team ，以及基于邮件列表、IRC 聊天室，和其他在线媒体中产生的公共讨论内容；    
 
-成功启动 Riaknostic 的前提为，确保 Riak 已经在节点上正在运行，之后就可以调用如下命令
+> 成功启动 Riaknostic 的前提为，确保 Riak 已经在节点上正在运行，之后就可以调用如下命令
 
 ```shell
 riak-admin diag
 ```
 
-More extensive documentation for Riaknostic can be found in the [Inspecting a Node](http://docs.basho.com/riak/2.1.3/ops/running/nodes/inspecting/) guide.
+> More extensive documentation for Riaknostic can be found in the [Inspecting a Node](http://docs.basho.com/riak/2.1.3/ops/running/nodes/inspecting/) guide.
 
 
 ---
