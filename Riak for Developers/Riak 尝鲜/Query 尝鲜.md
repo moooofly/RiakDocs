@@ -5,7 +5,10 @@
 
 原文地址：[这里](http://docs.basho.com/riak/2.1.3/dev/taste-of-riak/querying/)
 
-既然已经尝试过了 Riak  的 CRUD 接口，接下来我们可以针对数据的设计和查询进一步探索了，相关内容：[二级索引](http://docs.basho.com/riak/2.1.3/dev/using/2i/) and [key/value 操作](http://docs.basho.com/riak/2.1.3/dev/using/basics/) 。
+既然已经尝试过了 Riak  的 CRUD 接口，接下来我们可以针对数据的设计和查询进一步探索了，相关内容：
+
+- [二级索引](http://docs.basho.com/riak/2.1.3/dev/using/2i/) 
+- [key/value 操作](http://docs.basho.com/riak/2.1.3/dev/using/basics/) 
 
 
 ### 配置变更
@@ -14,24 +17,24 @@
 
 （针对 CentOS/RHEL 系列）配置文件所在路径：**/etc/riak/riak.conf**
 
-Open the riak.conf file in your favorite text editor.
 
 #### 测试二级索引需要使用 LevelDB 作为后端
 
-将配置文件 riak.conf 中的 storage_backend 设置由 bitcask 变为 leveldb ；    
-因为只有 [leveldb](http://docs.basho.com/riak/2.1.3/ops/advanced/backends/leveldb/) 支持二级索引；
+ 需要将配置文件 riak.conf 中的 storage_backend 设置由 bitcask 变更为 leveldb ，因为只有 [leveldb](http://docs.basho.com/riak/2.1.3/ops/advanced/backends/leveldb/) 支持二级索引；
 
-保存配置信息后，重启 riak 节点，运行 ping 命令确认节点已经正常运行。
+保存好配置信息后，需要重启 riak 节点，再运行 ping 命令以确认节点已经正常运行。
 
-**注意**：如果是基于集群测试该功能，则需要为集群中的每个节点变更相应的配置信息后重启相应的节点。
+> **注意**
+> 
+如果是基于集群测试该功能，则需要为集群中的每个节点变更相应的配置信息后重启相应的节点。
 
 
 ### 关于查询（Querying）和模式（Schemas）的简单说明
 
-即使在 key/value 存储的世界中，模式也并非一个“脏词”；    
-逻辑数据库模式用于描述数据之间的关联；    
-模式的使用就如同“跨多个 bucket 使用相同的 key 存储不同类型的 value ，并以此描述现实中的数据结构”一样简单（这些数据基于相同的 key 建立了关联）；    
-查询方法的设计将会把你引入到“如何在 Riak 进行数据存储设计”的思考中；    
+- 即使在 key/value 存储的世界中，模式也并非一个“脏词”；    
+- 逻辑数据库模式用于描述数据之间的关联；    
+- 模式的使用就如同“跨多个 bucket 使用相同的 key 存储不同类型的 value ，并以此描述现实中的数据结构”一样简单（这些数据基于相同的 key 建立了关联）；    
+- 查询方法的设计将会把你引入到“如何在 Riak 进行数据存储设计”的思考中；    
 
 关于 key/value 模型更加全面的讨论可以参考：[这里](http://docs.basho.com/riak/2.1.3/dev/data-modeling/key-value/) 。
 
@@ -466,9 +469,9 @@ ok
 
 ### 二级索引
 
-如果你来自 SQL 的世界，就会发现二级索引(2i)和 SQL 索引非常相似；    
-基于二级索引可以非常快速的查询出目标对象，而不需要扫描整个数据集；    
-基于二级索引可以非常容易的查出包含特定值的、按组划分的关联数据，甚至可以针对一定范围的值进行查询。    
+- 如果你来自 SQL 的世界，就会发现二级索引(2i)和 SQL 索引非常相似；    
+- 基于二级索引可以非常快速的查询出目标对象，而不需要扫描整个数据集；    
+- 基于二级索引可以非常容易的查出包含特定值的、按组划分的关联数据，甚至可以针对一定范围的值进行查询。    
 
 下面的例子用于展示二级索引的使用。
 
