@@ -49,12 +49,12 @@ Riak 学习文档（基于 v2.1.3）
   - Buckets
   - Capability Negotiation
   - Causal Context
-  - Clusters
-  - Data Types
-  - Eventual Consistency
+  - 集群（Clusters）
+  - 数据类型（Data Types）
+  - 最终一致性（Eventual Consistency）
   - Keys and Objects
-  - Replication
-  - Strong Consistency
+  - 复制（Replication）
+  - 强一致性（Strong Consistency）
   - Vnodes
   
 - Riak 与其他 NoSQL 的比较
