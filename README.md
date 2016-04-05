@@ -24,7 +24,7 @@ Riak 开发者手册
 - Riak 尝鲜
   - [CRUD 操作](https://github.com/moooofly/RiakDocs/blob/master/Riak%20for%20Developers/Riak%20%E5%B0%9D%E9%B2%9C/CRUD%20%E6%93%8D%E4%BD%9C.md)
   - [Query 尝鲜](https://github.com/moooofly/RiakDocs/blob/master/Riak%20for%20Developers/Riak%20%E5%B0%9D%E9%B2%9C/Query%20%E5%B0%9D%E9%B2%9C.md)
-  - 对象模型
+  - [对象模型](https://github.com/moooofly/RiakDocs/blob/master/Riak%20for%20Developers/Riak%20%E5%B0%9D%E9%B2%9C/%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.md)
 - Basic Usage
   - 应用向导
   - 客户端库
