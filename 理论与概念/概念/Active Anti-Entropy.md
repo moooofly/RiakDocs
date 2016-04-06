@@ -51,6 +51,5 @@ AAE 会以递归方式，逐层比较整棵树，直到其准确定位到特定�
 
 除此之外，hash tree 是在新的写请求到来时实时更新的，这将会减少 Riak 检测并修复副本差异的整体时间；
 
-作为一种额外的应变措施（fallback）措施，Riak 会周期性的清理 hash tree ，并根据磁盘上的 key/value 重建所有 hash tree ；    
-这种模式有助于 Riak 检测到由于磁盘失效、硬件错误，和其他原因导致的 slient 磁盘数据损毁；    
+作为一种额外的应变措施（fallback）措施，Riak 会周期性的清理 hash tree ，并根据磁盘上的 key/value 重建所有 hash tree ；这种模式有助于 Riak 检测到由于磁盘失效、硬件错误，和其他原因导致的 slient 磁盘数据损毁；    
 该重建行为的默认时间周期为一周，但是可以在每一个节点上的[配置文件](http://docs.basho.com/riak/2.1.3/ops/advanced/configs/configuration-files/#active-anti-entropy)中进行单独调整。    
