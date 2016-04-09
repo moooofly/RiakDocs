@@ -5,7 +5,10 @@
 下面的内容是研读 Riak 文档时经常遇到的术语的列表；同时给出了指向更详细信息的链接地址；
 
 #### Active Anti-Entropy (AAE)
-A continuous background process that compares and repairs any divergent, missing, or corrupted replicas. Unlike [read repair](http://docs.basho.com/riak/2.1.3/theory/concepts/Replication/#Read-Repair), which is only triggered when data is read, the Active Anti-Entropy system ensures the integrity of all data stored in Riak. This is particularly useful in clusters containing “cold data,” i.e. data that may not be read for long periods of time, potentially years. Furthermore, unlike the repair command, Active Anti-Entropy is an automatic process requiring no user intervention. It is enabled by default in Riak 1.3 and greater.
+AAE 是指针对或者存在差异，或者存在缺失，或者存在损毁的副本，进行比较和修复处理的、持续运行的后台程序；    
+与 [read repair](http://docs.basho.com/riak/2.1.3/theory/concepts/Replication/#Read-Repair) 的不同之处在于，read repair 只有在数据被读取的时候才触发，而 AAE 系统会一直确保全部数据的完整性，属于自动处理过程，无需人为干预；    
+AAE 系统在 Riak 集群中包含“冷数据”的场景中尤其有用；因为在这种场景下，数据可能在很长的一段时间内（比如数年）都不会被读取；    
+AAE 从 Riak 1.3 版本开始是默认使能的；    
 
 [Replication](http://docs.basho.com/riak/2.1.3/theory/concepts/Replication/#Active-Anti-Entropy-AAE-)
 
@@ -13,66 +16,65 @@ A continuous background process that compares and repairs any divergent, missing
 #### Basho Bench
 Basho Bench 是一种基准测试工具，用于生成精准的、可重复的性能测试和压力测试行为，以便绘制相应的性能图。
 
-[Basho Bench](http://docs.basho.com/riak/2.1.3/ops/building/benchmarking/)
-[GitHub repository](https://github.com/basho/basho_bench/)
+[Basho Bench](http://docs.basho.com/riak/2.1.3/ops/building/benchmarking/)    
+[GitHub repository](https://github.com/basho/basho_bench/)    
 
 #### Bucket
-bucket 是指 Riak 中用于数据存储的命名空间，可以用于针对其保存的内容设置一系列通用属性；例如，副本数目（n_val），读操作发生时 sibling 上的内容是否被返回等等；
+bucket 是指 Riak 中用于数据存储的命名空间，可以用于针对其保存的内容设置一系列通用属性；例如，副本数目（n_val），读操作发生时 sibling 上的内容是否被返回等等；    
 bucket 的属性是由 bucket type 决定的；
 
-[Buckets](http://docs.basho.com/riak/2.1.3/theory/concepts/Buckets/)
-[HTTP Bucket Operations](http://docs.basho.com/riak/2.1.3/dev/references/http/#Bucket-Operations)
+[Buckets](http://docs.basho.com/riak/2.1.3/theory/concepts/Buckets/)    
+[HTTP Bucket Operations](http://docs.basho.com/riak/2.1.3/dev/references/http/#Bucket-Operations)    
 
 
 #### Bucket Type
-Bucket type 的作用在于，允许你创建和管理一系列 bucket 属性集，当作用于 bucket 上时，等于隐式确定了 bucket 的行为模式；
-Bucket type 也可以作为 Riak 中除 bucket 和 key 之外的第三种命名空间使用；
+Bucket type 的作用在于，允许你创建和管理一系列 bucket 属性集，当作用于 bucket 上时，等于隐式确定了 bucket 的行为模式；    
+Bucket type 也可以作为 Riak 中除 bucket 和 key 之外的第三种命名空间使用；    
 
 [Bucket Types](http://docs.basho.com/riak/2.1.3/dev/advanced/bucket-types/)
 
 #### Cluster
-Riak 集群是由 160-bit 整数空间等分后的分区构成的；
-位于 Riak Ring 中的每一个 vnode 负责一个上述分区；
+Riak 集群是由 160-bit 整数空间等分后的分区构成的；    
+位于 Riak Ring 中的每一个 vnode 负责一个上述分区；    
 
-[Clusters](http://docs.basho.com/riak/2.1.3/theory/concepts/Clusters/)
-[Dynamo](http://docs.basho.com/riak/2.1.3/theory/dynamo/)
+[Clusters](http://docs.basho.com/riak/2.1.3/theory/concepts/Clusters/)    
+[Dynamo](http://docs.basho.com/riak/2.1.3/theory/dynamo/)    
 
 
 #### Consistent Hashing
-一致性哈希是一种 当 hash table 中的数据结构需要重新进行平衡时（即发生 slot 添加或移除时），用于限制 reshuffling keys 数量的 技术；
-Riak 使用一致性哈希组织数据的存储和复制；
-特别要指出的是，负责对象存储的 Riak Ring 中的 vnode 是一定需要使用该技术的；
+一致性哈希是一种 当 hash table 中的数据结构需要重新进行平衡时（即发生 slot 添加或移除时），用于限制 reshuffling keys 数量的 技术；    
+Riak 使用一致性哈希组织数据的存储和复制；    
+特别要指出的是，负责对象存储的 Riak Ring 中的 vnode 是一定需要使用该技术的；    
 
-[Clusters](http://docs.basho.com/riak/2.1.3/theory/concepts/Clusters/)
-[Dynamo](http://docs.basho.com/riak/2.1.3/theory/dynamo/)
-[Wikipedia:Consistent Hashing](https://en.wikipedia.org/wiki/Consistent_hashing)
+[Clusters](http://docs.basho.com/riak/2.1.3/theory/concepts/Clusters/)    
+[Dynamo](http://docs.basho.com/riak/2.1.3/theory/dynamo/)    
+[Wikipedia:Consistent Hashing](https://en.wikipedia.org/wiki/Consistent_hashing)    
 
 #### Data Types
 Riak 中的数据类型是指这样一种数据对象：
 
-- 该数据对象受启发于对 [CRDT](http://hal.upmc.fr/file/index/docid/555588/filename/techreport.pdf) 的研究；
-- 采用了一定的收敛规则以决定副本间的冲突在 Riak 的最终一致性系统里如何得以解决；
-- 目前存在 5 种 Riak 数据类型：flags, registers, counters, sets 和 maps ；
+- 该数据对象受启发于对 [CRDT](http://hal.upmc.fr/file/index/docid/555588/filename/techreport.pdf) 的研究；    
+- 采用了一定的收敛规则以决定副本间的冲突在 Riak 的最终一致性系统里如何得以解决；    
+- 目前存在 5 种 Riak 数据类型：flags, registers, counters, sets 和 maps ；    
 
-[Data Types Concept](http://docs.basho.com/riak/2.1.3/theory/concepts/crdts/)
-[Using Data Types](http://docs.basho.com/riak/2.1.3/dev/using/data-types/)
-[Data Modeling with Riak Data Types](http://docs.basho.com/riak/2.1.3/dev/data-modeling/data-types/)
-
+[Data Types Concept](http://docs.basho.com/riak/2.1.3/theory/concepts/crdts/)    
+[Using Data Types](http://docs.basho.com/riak/2.1.3/dev/using/data-types/)    
+[Data Modeling with Riak Data Types](http://docs.basho.com/riak/2.1.3/dev/data-modeling/data-types/)    
 
 #### Eventual Consistency
-最终一致性模型是指，在没有发生针对指定数据条目的、新的更新时，对于该条目的所有读操作都将获取到最后更新的值内容；
-在 Riak 中实现的最终一致性细节信息可以查阅下面的问题。
+最终一致性模型是指，在没有发生针对指定数据条目的、新的更新时，对于该条目的所有读操作都将获取到最后更新的值内容；    
+在 Riak 中实现的最终一致性细节信息可以查阅下面的问题。    
 
-[Eventual Consistency](http://docs.basho.com/riak/2.1.3/theory/concepts/Eventual-Consistency/)
+[Eventual Consistency](http://docs.basho.com/riak/2.1.3/theory/concepts/Eventual-Consistency/)    
 
 
 #### Gossiping
-Riak 使用 gossip 协议在集群中分享和传播 ring 的状态，以及 bucket 属性信息；
-无论何时，只要一个节点变更了其对 ring 中管辖区域的声明，就会通过该协议通知此变动；
-每个节点还会周期性的、向随机选择的其他节点发送自身环状态的当前视图，以防有节点错过了之前的更新；
+Riak 使用 gossip 协议在集群中分享和传播 ring 的状态，以及 bucket 属性信息；    
+无论何时，只要一个节点变更了其对 ring 中管辖区域的声明，就会通过该协议通知此变动；    
+每个节点还会周期性的、向随机选择的其他节点发送自身环状态的当前视图，以防有节点错过了之前的更新；    
 
-[Clusters](http://docs.basho.com/riak/2.1.3/theory/concepts/Clusters/)
-[Adding and Removing Nodes](http://docs.basho.com/riak/2.1.3/ops/running/nodes/adding-removing/#The-Node-Join-Process)
+[Clusters](http://docs.basho.com/riak/2.1.3/theory/concepts/Clusters/)    
+[Adding and Removing Nodes](http://docs.basho.com/riak/2.1.3/ops/running/nodes/adding-removing/#The-Node-Join-Process)    
 
 #### Hinted Handoff
 Hinted handoff 是指这样一种技术：当 Riak 集群中存在节点失效的情况时，会使用失效节点的邻居节点临时性的接管针对该失效节点的存储操作；
