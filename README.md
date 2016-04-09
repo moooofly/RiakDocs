@@ -66,7 +66,7 @@ Riak 学习文档（基于 v2.1.3）
   - Neo4j
   - DynamoDB
 
-- Riak Glossary
+- [Riak 术语表](https://github.com/moooofly/RiakDocs/blob/master/%E7%90%86%E8%AE%BA%E4%B8%8E%E6%A6%82%E5%BF%B5/Riak%20%E6%9C%AF%E8%AF%AD%E8%A1%A8.md)
 - Dynamo Paper
 
 #### 社区
