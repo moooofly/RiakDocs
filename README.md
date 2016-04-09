@@ -45,7 +45,7 @@ Riak 学习文档（基于 v2.1.3）
 #### 理论与概念
 
 - 概念
-  - Active Anti-Entropy
+  - [Active Anti-Entropy](https://github.com/moooofly/RiakDocs/blob/master/%E7%90%86%E8%AE%BA%E4%B8%8E%E6%A6%82%E5%BF%B5/%E6%A6%82%E5%BF%B5/Active%20Anti-Entropy.md)
   - Buckets
   - Capability Negotiation
   - Causal Context
